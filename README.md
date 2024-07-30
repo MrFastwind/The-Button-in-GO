@@ -8,10 +8,10 @@ To get started with the game, you'll need to have Go installed on your machine. 
 
 Once you have Go installed, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/mrfastwind/the-button-game.git`
-2. Navigate to the project directory: `cd the-button-game`
+1. Clone the repository: `git clone https://github.com/MrFastwind/The-Button-in-GO.git`
+2. Navigate to the project directory: `cd The-Button-in-GO`
 3. Build the project: `go build`
-4. Run the game: `./the-button-game`
+4. Run the game: `./the-button-go`
 
 ## Gameplay
 
@@ -20,7 +20,7 @@ The game consists of a single button that the player has to click. Each time the
 ## Future additions
 
 - Add stat for tracking lifespan of the button.
-- Add different tiers for how much life the button at the moment of saving it. 
+- Add different tiers for how much life the button at the moment of saving it.
 
 ## Contributing
 
