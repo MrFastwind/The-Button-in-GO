@@ -63,5 +63,6 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {http.ServeFile(w, r, "templates/index.html")})
 	api.AddRoutes("/api", buttonService)
 	fmt.Println("Server is running on http://localhost:8080")
+	gameptr.Start()
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
