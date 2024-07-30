@@ -20,7 +20,7 @@ type GameRepository struct{
 }
 
 func (game *GameRepository) Click() uint8{
-	var value = game.progress.GetGameData().Reset()
+	var value = game.progress.GetGameData().SetValue(1)
 	var segments = game.progress.GetGameData().Segments()
 	slices.Sort(segments)
 

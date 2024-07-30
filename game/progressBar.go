@@ -53,12 +53,14 @@ func (bar *AtomicProgressBarSegments) IncrementByPercentage(percentage float32) 
 	bar.mutex.Unlock()
 }
 
-func (bar *AtomicProgressBarSegments) SetValue(value float32){
+func (bar *AtomicProgressBarSegments) SetValue(value float32) float32{
 	value = max(value, 0)
 	value = min(value, 1)
 	bar.mutex.Lock()
+	var percentage = bar.percentage
 	bar.percentage = value
 	bar.mutex.Unlock()
+	return percentage
 }
 
 
