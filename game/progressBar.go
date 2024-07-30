@@ -53,6 +53,14 @@ func (bar *AtomicProgressBarSegments) IncrementByPercentage(percentage float32) 
 	bar.mutex.Unlock()
 }
 
+func (bar *AtomicProgressBarSegments) SetValue(value float32){
+	value = max(value, 0)
+	value = min(value, 1)
+	bar.mutex.Lock()
+	bar.percentage = value
+	bar.mutex.Unlock()
+}
+
 
 
 func CreateGame() *Game {
@@ -60,5 +68,6 @@ func CreateGame() *Game {
 	builder.Add(0.25)
 	builder.Add(0.5)
 	builder.Add(0.75)
+	builder.SetSpeed(-0.01)
 	return builder.Build()
 }

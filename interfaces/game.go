@@ -1,7 +1,7 @@
 package interfaces
 
 type IStartable interface{
-	Start()
+	Start() error
 	HasStarted() bool
 	IsRunning() bool
 }
@@ -13,6 +13,7 @@ type IGame[T any] interface{
 
 type IGameBuilder[F Float, I Index] interface{
 	Add(segment F)
+	SetSpeed(speed F)
 	Build() *IGame[ISegmentedProgressBar[F,I]]
 }
 
@@ -28,4 +29,5 @@ type IProgressBar[T Float] interface {
 	Value() T
 	IncrementByPercentage(percentage T) 
 	Reset() T
+	SetValue(value T)
 }
