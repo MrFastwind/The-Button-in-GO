@@ -33,6 +33,9 @@ function updateProgressBar() {
         "/api/button",
         {},
         function(data) {
+            if (data.Percentage<=0){
+                location.reload();
+            }
             data.Segments.forEach(function(element) {
                 //Color the amount of boxes, with a different color for each segment
             })
