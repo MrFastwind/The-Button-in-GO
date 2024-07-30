@@ -29,6 +29,7 @@ func (game *Game) start() (error){
 }
 func (game *Game)runnable(){
 	game.progress.SetValue(1)
+	game.running.Store(true)
 	log.Println("Game started!")
 	for game.IsRunning(){
 		game.progress.IncrementByPercentage(game.config.percentageBySecond)
