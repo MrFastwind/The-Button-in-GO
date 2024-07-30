@@ -60,7 +60,18 @@ func main() {
 
 
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {http.ServeFile(w, r, "templates/index.html")})
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		
+		if gameptr.IsRunning(){
+			log.Println("Returning index.html")
+			http.ServeFile(w, r, "templates/index.html")
+		} else {
+			log.Println("Returning gameover.html")
+			http.ServeFile(w, r, "templates/gameover.html")
+		}
+	
+	
+	})
 	api.AddRoutes("/api", buttonService)
 	fmt.Println("Server is running on http://localhost:8080")
 	gameptr.Start()
